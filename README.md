@@ -21,12 +21,10 @@
 ## 3. 데이터셋 소개
 
 - **데이터셋:** Titanic Dataset
-- **데이터 출처:** [Kaggle Titanic Dataset - Data Science Dojo](https://github.com/datasciencedojo/datasets/blob/master/titanic.csv)
+- **데이터 출처:** [Titanic Dataset](https://github.com/datasciencedojo/datasets/blob/master/titanic.csv)
 - **데이터 크기:** 891행 × 12열
 - **예측 대상(Target):** `Survived`
 - **문제 유형:** 이진 분류(Binary Classification)
-
-생존 여부(`Survived`)를 예측하기 위해 승객의 성별, 나이, 객실 등급, 요금 등의 변수를 활용하였습니다.
 
 ## 4. 주요 실험 내용
 
@@ -36,8 +34,7 @@
 
 ### STEP 2. 탐색적 데이터 분석(EDA)
 - 데이터 구조 및 변수 확인
-- 결측치 비율 분석
-- 이상치 분석
+- 결측치 비율 및 이상치 분석
 - Histogram, Boxplot, Heatmap, Countplot 시각화
 - 생존 여부와 주요 변수 간 관계 분석
 
@@ -58,11 +55,11 @@
 - Base 및 Exp-1, Exp-2, Exp-3 실험 비교
 
 ### STEP 6~10. 추가 분석 및 성능 개선
-- Feature Selection 적용 전후 비교 실험
-- GridSearchCV를 이용한 하이퍼파라미터 최적화
-- Permutation Importance를 활용한 변수 중요도 분석
-- SHAP을 이용한 모델 예측 해석
-- RandomizedSearchCV 기반 추가 모델 및 하이퍼파라미터 탐색
+- Feature Selection 적용 전후 비교
+- GridSearchCV 하이퍼파라미터 최적화
+- Permutation Importance 분석
+- SHAP 기반 모델 해석
+- RandomizedSearchCV 기반 추가 모델 탐색
 
 ### STEP 11. 종합 분석 및 결론
 - 실험 결과 종합 비교
@@ -71,39 +68,30 @@
 
 ## 5. 주요 실험 결과
 
-필수 실험에서 가장 높은 F1-score를 기록한 조합은 다음과 같습니다.
+필수 실험에서 가장 높은 F1-score를 기록한 조합은 Exp-1의 Logistic Regression입니다.
 
-| 구분 | 결과 |
-|---|---|
-| 실험 | Exp-1 |
-| 모델 | Logistic Regression |
-| 결측치 처리 | Mean |
-| 인코딩 | One-Hot Encoding |
-| 스케일링 | StandardScaler |
-| Feature Selection | 미적용 |
+| 평가 지표 | 결과 |
+|---|---:|
 | Accuracy | 0.8324 |
+| Precision | 0.8000 |
+| Recall | 0.7536 |
 | F1-score | 0.7761 |
 | ROC-AUC | 0.8722 |
 
-추가 AutoML 실험에서는 교차검증 기준 Random Forest가 가장 높은 F1-score를 기록하였으며, 테스트 데이터에서는 Logistic Regression이 가장 높은 F1-score를 기록하였습니다.
-
-이를 통해 전처리 전략과 모델 선택에 따라 예측 성능이 달라질 수 있음을 확인하였습니다.
+- 결측치 처리: Mean
+- 인코딩: One-Hot Encoding
+- 스케일링: StandardScaler
+- Feature Selection: 미적용
 
 ## 6. 실행 방법
 
-1. 위 저장소에서 `BigData_Feature_Engineering.ipynb` 파일을 선택합니다.
-2. 노트북 파일을 다운로드하거나 Google Colab에서 엽니다.
-3. 필요한 라이브러리 설치 및 데이터 수집 코드를 실행합니다.
-4. 노트북 상단부터 마지막 셀까지 순서대로 실행합니다.
-5. 각 STEP의 분석 결과와 시각화 및 모델 평가 결과를 확인합니다.
-
-**Google Colab에서 실행하기**
+1. 저장소에서 `BigData_Feature_Engineering.ipynb` 파일을 선택합니다.
+2. 파일을 다운로드하거나 Google Colab에서 엽니다.
+3. 필요한 라이브러리 및 데이터 수집 코드를 실행합니다.
+4. 노트북의 셀을 위에서부터 순서대로 실행합니다.
+5. 각 STEP의 분석 결과와 시각화를 확인합니다.
 
 [Google Colab 바로가기](https://colab.research.google.com/)
-
-Google Colab에서 GitHub 탭을 선택한 뒤 다음 저장소 주소를 입력하면 노트북을 불러올 수 있습니다.
-
-`https://github.com/sy2342803/Feature-Engineering-Titanic`
 
 ## 7. 저장소 구성
 
@@ -114,4 +102,4 @@ Google Colab에서 GitHub 탭을 선택한 뒤 다음 저장소 주소를 입력
 
 ## 8. 참고 사항
 
-본 프로젝트는 Titanic 데이터셋을 활용한 머신러닝 특성 공학 및 성능 비교 실습입니다. 실험 결과는 사용한 데이터 분할, 전처리 조건 및 모델 설정에 따라 달라질 수 있습니다.
+본 프로젝트는 Titanic 데이터셋을 활용한 특성 공학 및 머신러닝 성능 비교 실습입니다. 실험 결과는 데이터 분할, 전처리 조건 및 모델 설정에 따라 달라질 수 있습니다.
